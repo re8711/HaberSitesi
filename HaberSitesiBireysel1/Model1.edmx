@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="kutuphane1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="YeniHbrHaberler">
+          <Key>
+            <PropertyRef Name="HaberID" />
+          </Key>
+          <Property Name="HaberID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Baslik" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Ozet" Type="nvarchar" MaxLength="500" />
+          <Property Name="Icerik" Type="nvarchar(max)" />
+          <Property Name="ResimYolu" Type="nvarchar" MaxLength="255" />
+          <Property Name="EklenmeTarihi" Type="datetime" />
+          <Property Name="OkunmaSayisi" Type="int" />
+          <Property Name="KategoriID" Type="int" />
+        </EntityType>
+        <EntityType Name="YeniHbrKategoriler">
+          <Key>
+            <PropertyRef Name="KategoriID" />
+          </Key>
+          <Property Name="KategoriID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KategoriAdi" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="YeniHbrUyeler">
+          <Key>
+            <PropertyRef Name="UyeID" />
+          </Key>
+          <Property Name="UyeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdSoyad" Type="nvarchar" MaxLength="100" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="Sifre" Type="nvarchar" MaxLength="50" />
+          <Property Name="KayitTarihi" Type="datetime" />
+        </EntityType>
+        <EntityType Name="YeniHbrYonetim">
+          <Key>
+            <PropertyRef Name="AdminID" />
+          </Key>
+          <Property Name="AdminID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KullaniciAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sifre" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="YeniHbrYorumlar">
+          <Key>
+            <PropertyRef Name="YorumID" />
+          </Key>
+          <Property Name="YorumID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdSoyad" Type="nvarchar" MaxLength="100" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="YorumMetni" Type="nvarchar(max)" />
+          <Property Name="Tarih" Type="datetime" />
+          <Property Name="OnayliMi" Type="bit" />
+          <Property Name="HaberID" Type="int" />
+        </EntityType>
+        <Association Name="FK__YeniHbrHa__Kateg__14270015">
+          <End Role="YeniHbrKategoriler" Type="Self.YeniHbrKategoriler" Multiplicity="0..1" />
+          <End Role="YeniHbrHaberler" Type="Self.YeniHbrHaberler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="YeniHbrKategoriler">
+              <PropertyRef Name="KategoriID" />
+            </Principal>
+            <Dependent Role="YeniHbrHaberler">
+              <PropertyRef Name="KategoriID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__YeniHbrYo__Haber__18EBB532">
+          <End Role="YeniHbrHaberler" Type="Self.YeniHbrHaberler" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="YeniHbrYorumlar" Type="Self.YeniHbrYorumlar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="YeniHbrHaberler">
+              <PropertyRef Name="HaberID" />
+            </Principal>
+            <Dependent Role="YeniHbrYorumlar">
+              <PropertyRef Name="HaberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="kutuphane1ModelStoreContainer">
+          <EntitySet Name="YeniHbrHaberler" EntityType="Self.YeniHbrHaberler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="YeniHbrKategoriler" EntityType="Self.YeniHbrKategoriler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="YeniHbrUyeler" EntityType="Self.YeniHbrUyeler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="YeniHbrYonetim" EntityType="Self.YeniHbrYonetim" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="YeniHbrYorumlar" EntityType="Self.YeniHbrYorumlar" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__YeniHbrHa__Kateg__14270015" Association="Self.FK__YeniHbrHa__Kateg__14270015">
+            <End Role="YeniHbrKategoriler" EntitySet="YeniHbrKategoriler" />
+            <End Role="YeniHbrHaberler" EntitySet="YeniHbrHaberler" />
+          </AssociationSet>
+          <AssociationSet Name="FK__YeniHbrYo__Haber__18EBB532" Association="Self.FK__YeniHbrYo__Haber__18EBB532">
+            <End Role="YeniHbrHaberler" EntitySet="YeniHbrHaberler" />
+            <End Role="YeniHbrYorumlar" EntitySet="YeniHbrYorumlar" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="kutuphane1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="kutuphane1Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="YeniHbrHaberler" EntityType="kutuphane1Model.YeniHbrHaberler" />
+          <EntitySet Name="YeniHbrKategoriler" EntityType="kutuphane1Model.YeniHbrKategoriler" />
+          <EntitySet Name="YeniHbrYonetim" EntityType="kutuphane1Model.YeniHbrYonetim" />
+          <EntitySet Name="YeniHbrYorumlar" EntityType="kutuphane1Model.YeniHbrYorumlar" />
+          <AssociationSet Name="FK__YeniHbrHa__Kateg__14270015" Association="kutuphane1Model.FK__YeniHbrHa__Kateg__14270015">
+            <End Role="YeniHbrKategoriler" EntitySet="YeniHbrKategoriler" />
+            <End Role="YeniHbrHaberler" EntitySet="YeniHbrHaberler" />
+          </AssociationSet>
+          <AssociationSet Name="FK__YeniHbrYo__Haber__18EBB532" Association="kutuphane1Model.FK__YeniHbrYo__Haber__18EBB532">
+            <End Role="YeniHbrHaberler" EntitySet="YeniHbrHaberler" />
+            <End Role="YeniHbrYorumlar" EntitySet="YeniHbrYorumlar" />
+          </AssociationSet>
+          <EntitySet Name="YeniHbrUyeler" EntityType="kutuphane1Model.YeniHbrUyeler" />
+        </EntityContainer>
+        <EntityType Name="YeniHbrHaberler">
+          <Key>
+            <PropertyRef Name="HaberID" />
+          </Key>
+          <Property Name="HaberID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Baslik" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Ozet" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Icerik" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ResimYolu" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="EklenmeTarihi" Type="DateTime" Precision="3" />
+          <Property Name="OkunmaSayisi" Type="Int32" />
+          <Property Name="KategoriID" Type="Int32" />
+          <NavigationProperty Name="YeniHbrKategoriler" Relationship="kutuphane1Model.FK__YeniHbrHa__Kateg__14270015" FromRole="YeniHbrHaberler" ToRole="YeniHbrKategoriler" />
+          <NavigationProperty Name="YeniHbrYorumlar" Relationship="kutuphane1Model.FK__YeniHbrYo__Haber__18EBB532" FromRole="YeniHbrHaberler" ToRole="YeniHbrYorumlar" />
+        </EntityType>
+        <EntityType Name="YeniHbrKategoriler">
+          <Key>
+            <PropertyRef Name="KategoriID" />
+          </Key>
+          <Property Name="KategoriID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KategoriAdi" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="YeniHbrHaberler" Relationship="kutuphane1Model.FK__YeniHbrHa__Kateg__14270015" FromRole="YeniHbrKategoriler" ToRole="YeniHbrHaberler" />
+        </EntityType>
+        <EntityType Name="YeniHbrYonetim">
+          <Key>
+            <PropertyRef Name="AdminID" />
+          </Key>
+          <Property Name="AdminID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KullaniciAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="YeniHbrYorumlar">
+          <Key>
+            <PropertyRef Name="YorumID" />
+          </Key>
+          <Property Name="YorumID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdSoyad" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="YorumMetni" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Tarih" Type="DateTime" Precision="3" />
+          <Property Name="OnayliMi" Type="Boolean" />
+          <Property Name="HaberID" Type="Int32" />
+          <NavigationProperty Name="YeniHbrHaberler" Relationship="kutuphane1Model.FK__YeniHbrYo__Haber__18EBB532" FromRole="YeniHbrYorumlar" ToRole="YeniHbrHaberler" />
+        </EntityType>
+        <Association Name="FK__YeniHbrHa__Kateg__14270015">
+          <End Type="kutuphane1Model.YeniHbrKategoriler" Role="YeniHbrKategoriler" Multiplicity="0..1" />
+          <End Type="kutuphane1Model.YeniHbrHaberler" Role="YeniHbrHaberler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="YeniHbrKategoriler">
+              <PropertyRef Name="KategoriID" />
+            </Principal>
+            <Dependent Role="YeniHbrHaberler">
+              <PropertyRef Name="KategoriID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__YeniHbrYo__Haber__18EBB532">
+          <End Type="kutuphane1Model.YeniHbrHaberler" Role="YeniHbrHaberler" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="kutuphane1Model.YeniHbrYorumlar" Role="YeniHbrYorumlar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="YeniHbrHaberler">
+              <PropertyRef Name="HaberID" />
+            </Principal>
+            <Dependent Role="YeniHbrYorumlar">
+              <PropertyRef Name="HaberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="YeniHbrUyeler">
+          <Key>
+            <PropertyRef Name="UyeID" />
+          </Key>
+          <Property Name="UyeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdSoyad" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="KayitTarihi" Type="DateTime" Precision="3" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="kutuphane1ModelStoreContainer" CdmEntityContainer="kutuphane1Entities">
+          <EntitySetMapping Name="YeniHbrHaberler">
+            <EntityTypeMapping TypeName="kutuphane1Model.YeniHbrHaberler">
+              <MappingFragment StoreEntitySet="YeniHbrHaberler">
+                <ScalarProperty Name="KategoriID" ColumnName="KategoriID" />
+                <ScalarProperty Name="OkunmaSayisi" ColumnName="OkunmaSayisi" />
+                <ScalarProperty Name="EklenmeTarihi" ColumnName="EklenmeTarihi" />
+                <ScalarProperty Name="ResimYolu" ColumnName="ResimYolu" />
+                <ScalarProperty Name="Icerik" ColumnName="Icerik" />
+                <ScalarProperty Name="Ozet" ColumnName="Ozet" />
+                <ScalarProperty Name="Baslik" ColumnName="Baslik" />
+                <ScalarProperty Name="HaberID" ColumnName="HaberID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="YeniHbrKategoriler">
+            <EntityTypeMapping TypeName="kutuphane1Model.YeniHbrKategoriler">
+              <MappingFragment StoreEntitySet="YeniHbrKategoriler">
+                <ScalarProperty Name="KategoriAdi" ColumnName="KategoriAdi" />
+                <ScalarProperty Name="KategoriID" ColumnName="KategoriID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="YeniHbrYonetim">
+            <EntityTypeMapping TypeName="kutuphane1Model.YeniHbrYonetim">
+              <MappingFragment StoreEntitySet="YeniHbrYonetim">
+                <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+                <ScalarProperty Name="KullaniciAdi" ColumnName="KullaniciAdi" />
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="YeniHbrYorumlar">
+            <EntityTypeMapping TypeName="kutuphane1Model.YeniHbrYorumlar">
+              <MappingFragment StoreEntitySet="YeniHbrYorumlar">
+                <ScalarProperty Name="HaberID" ColumnName="HaberID" />
+                <ScalarProperty Name="OnayliMi" ColumnName="OnayliMi" />
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+                <ScalarProperty Name="YorumMetni" ColumnName="YorumMetni" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="AdSoyad" ColumnName="AdSoyad" />
+                <ScalarProperty Name="YorumID" ColumnName="YorumID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="YeniHbrUyeler">
+            <EntityTypeMapping TypeName="kutuphane1Model.YeniHbrUyeler">
+              <MappingFragment StoreEntitySet="YeniHbrUyeler">
+                <ScalarProperty Name="KayitTarihi" ColumnName="KayitTarihi" />
+                <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="AdSoyad" ColumnName="AdSoyad" />
+                <ScalarProperty Name="UyeID" ColumnName="UyeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

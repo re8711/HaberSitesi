@@ -1,0 +1,541 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{47B633A6-6B57-4910-A843-731C83BB410A}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HaberSitesiBireysel1</RootNamespace>
+    <AssemblyName>HaberSitesiBireysel1</AssemblyName>
+    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44381</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\css\animate.min.css" />
+    <Content Include="assets\css\bootstrap.min.css" />
+    <Content Include="assets\css\dark-theme.css" />
+    <Content Include="assets\css\footer.css" />
+    <Content Include="assets\css\header.css" />
+    <Content Include="assets\css\remixicon.css" />
+    <Content Include="assets\css\responsive.css" />
+    <Content Include="assets\css\style.css" />
+    <Content Include="assets\css\swiper-bundle.min.css" />
+    <Content Include="assets\fonts\remixicon0c93.svg" />
+    <Content Include="assets\img\404.png" />
+    <Content Include="assets\img\about\about-img-2.jpg" />
+    <Content Include="assets\img\about\about-img.png" />
+    <Content Include="assets\img\about\board-1.jpg" />
+    <Content Include="assets\img\about\board-2.jpg" />
+    <Content Include="assets\img\about\board-3.jpg" />
+    <Content Include="assets\img\about\board-4.jpg" />
+    <Content Include="assets\img\author\author-1.png" />
+    <Content Include="assets\img\author\author-2.png" />
+    <Content Include="assets\img\author\author-3.png" />
+    <Content Include="assets\img\author\author-4.png" />
+    <Content Include="assets\img\author\author-5.png" />
+    <Content Include="assets\img\author\author-6.png" />
+    <Content Include="assets\img\business\news-1.jpg" />
+    <Content Include="assets\img\business\news-2.jpg" />
+    <Content Include="assets\img\business\news-3.jpg" />
+    <Content Include="assets\img\business\news-4.jpg" />
+    <Content Include="assets\img\business\news-5.jpg" />
+    <Content Include="assets\img\business\news-6.jpg" />
+    <Content Include="assets\img\business\news-7.jpg" />
+    <Content Include="assets\img\business\news-8.jpg" />
+    <Content Include="assets\img\down-arrow.png" />
+    <Content Include="assets\img\favicon.png" />
+    <Content Include="assets\img\featured\news-1.jpg" />
+    <Content Include="assets\img\featured\news-10.jpg" />
+    <Content Include="assets\img\featured\news-11.jpg" />
+    <Content Include="assets\img\featured\news-12.jpg" />
+    <Content Include="assets\img\featured\news-13.jpg" />
+    <Content Include="assets\img\featured\news-14.jpg" />
+    <Content Include="assets\img\featured\news-15.jpg" />
+    <Content Include="assets\img\featured\news-2.jpg" />
+    <Content Include="assets\img\featured\news-3.jpg" />
+    <Content Include="assets\img\featured\news-4.jpg" />
+    <Content Include="assets\img\featured\news-5.jpg" />
+    <Content Include="assets\img\featured\news-6.jpg" />
+    <Content Include="assets\img\featured\news-7.jpg" />
+    <Content Include="assets\img\featured\news-8.jpg" />
+    <Content Include="assets\img\featured\news-9.jpg" />
+    <Content Include="assets\img\hero\circle-text.png" />
+    <Content Include="assets\img\hero\fire.png" />
+    <Content Include="assets\img\hero\hero-slide-1.jpg" />
+    <Content Include="assets\img\hero\hero-slide-2.jpg" />
+    <Content Include="assets\img\hero\hero-slide-3.jpg" />
+    <Content Include="assets\img\hero\news-1.jpg" />
+    <Content Include="assets\img\hero\news-2.jpg" />
+    <Content Include="assets\img\hero\news-3.jpg" />
+    <Content Include="assets\img\hero\news-4.jpg" />
+    <Content Include="assets\img\hero\news-thumb-1.png" />
+    <Content Include="assets\img\hero\news-thumb-2.png" />
+    <Content Include="assets\img\hero\news-thumb-3.png" />
+    <Content Include="assets\img\hero\news-thumb-4.png" />
+    <Content Include="assets\img\icons\angry.png" />
+    <Content Include="assets\img\icons\crying.png" />
+    <Content Include="assets\img\icons\down-arrow-white.html" />
+    <Content Include="assets\img\icons\facebook-blue.svg" />
+    <Content Include="assets\img\icons\facebook.svg" />
+    <Content Include="assets\img\icons\google-fill.svg" />
+    <Content Include="assets\img\icons\heart.png" />
+    <Content Include="assets\img\icons\instagram-blue.svg" />
+    <Content Include="assets\img\icons\instagram.svg" />
+    <Content Include="assets\img\icons\left-arrow-black.svg" />
+    <Content Include="assets\img\icons\left-arrow-gray.svg" />
+    <Content Include="assets\img\icons\linkedin.svg" />
+    <Content Include="assets\img\icons\long-arrow-black.svg" />
+    <Content Include="assets\img\icons\long-arrow-blue-2.svg" />
+    <Content Include="assets\img\icons\long-arrow-blue.svg" />
+    <Content Include="assets\img\icons\long-arrow-white.svg" />
+    <Content Include="assets\img\icons\mail-lock.svg" />
+    <Content Include="assets\img\icons\pinterest-blue.svg" />
+    <Content Include="assets\img\icons\play-button.svg" />
+    <Content Include="assets\img\icons\quote-icon.svg" />
+    <Content Include="assets\img\icons\right-arrow-black.svg" />
+    <Content Include="assets\img\icons\right-arrow-gray.svg" />
+    <Content Include="assets\img\icons\sidebar-menu.svg" />
+    <Content Include="assets\img\icons\smile-plus.svg" />
+    <Content Include="assets\img\icons\sound.svg" />
+    <Content Include="assets\img\icons\thumb.png" />
+    <Content Include="assets\img\icons\twitter-blue.svg" />
+    <Content Include="assets\img\icons\twitter.svg" />
+    <Content Include="assets\img\icons\worried.png" />
+    <Content Include="assets\img\icons\youtube.svg" />
+    <Content Include="assets\img\lifestyle\news-1.jpg" />
+    <Content Include="assets\img\lifestyle\news-10.jpg" />
+    <Content Include="assets\img\lifestyle\news-11.jpg" />
+    <Content Include="assets\img\lifestyle\news-12.jpg" />
+    <Content Include="assets\img\lifestyle\news-13.jpg" />
+    <Content Include="assets\img\lifestyle\news-14.jpg" />
+    <Content Include="assets\img\lifestyle\news-15.jpg" />
+    <Content Include="assets\img\lifestyle\news-16.jpg" />
+    <Content Include="assets\img\lifestyle\news-17.jpg" />
+    <Content Include="assets\img\lifestyle\news-18.jpg" />
+    <Content Include="assets\img\lifestyle\news-2.jpg" />
+    <Content Include="assets\img\lifestyle\news-3.jpg" />
+    <Content Include="assets\img\lifestyle\news-4.jpg" />
+    <Content Include="assets\img\lifestyle\news-5.jpg" />
+    <Content Include="assets\img\lifestyle\news-6.jpg" />
+    <Content Include="assets\img\lifestyle\news-7.jpg" />
+    <Content Include="assets\img\lifestyle\news-8.jpg" />
+    <Content Include="assets\img\lifestyle\news-9.jpg" />
+    <Content Include="assets\img\logo-white.png" />
+    <Content Include="assets\img\logo.png" />
+    <Content Include="assets\img\main-topics\news-1.jpg" />
+    <Content Include="assets\img\main-topics\news-2.jpg" />
+    <Content Include="assets\img\main-topics\news-3.jpg" />
+    <Content Include="assets\img\main-topics\news-4.jpg" />
+    <Content Include="assets\img\main-topics\news-5.jpg" />
+    <Content Include="assets\img\main-topics\news-6.jpg" />
+    <Content Include="assets\img\main-topics\news-7.jpg" />
+    <Content Include="assets\img\main-topics\news-8.jpg" />
+    <Content Include="assets\img\marketing\news-1.jpg" />
+    <Content Include="assets\img\marketing\news-2.jpg" />
+    <Content Include="assets\img\marketing\news-3.jpg" />
+    <Content Include="assets\img\marketing\news-4.jpg" />
+    <Content Include="assets\img\marketing\news-5.jpg" />
+    <Content Include="assets\img\marketing\news-6.jpg" />
+    <Content Include="assets\img\marketing\news-7.jpg" />
+    <Content Include="assets\img\marketing\news-8.jpg" />
+    <Content Include="assets\img\new-stories\news-1.jpg" />
+    <Content Include="assets\img\new-stories\news-10.jpg" />
+    <Content Include="assets\img\new-stories\news-11.jpg" />
+    <Content Include="assets\img\new-stories\news-12.jpg" />
+    <Content Include="assets\img\new-stories\news-13.jpg" />
+    <Content Include="assets\img\new-stories\news-14.jpg" />
+    <Content Include="assets\img\new-stories\news-15.jpg" />
+    <Content Include="assets\img\new-stories\news-16.jpg" />
+    <Content Include="assets\img\new-stories\news-17.jpg" />
+    <Content Include="assets\img\new-stories\news-18.jpg" />
+    <Content Include="assets\img\new-stories\news-19.jpg" />
+    <Content Include="assets\img\new-stories\news-2.jpg" />
+    <Content Include="assets\img\new-stories\news-20.jpg" />
+    <Content Include="assets\img\new-stories\news-21.jpg" />
+    <Content Include="assets\img\new-stories\news-22.jpg" />
+    <Content Include="assets\img\new-stories\news-23.jpg" />
+    <Content Include="assets\img\new-stories\news-24.jpg" />
+    <Content Include="assets\img\new-stories\news-25.jpg" />
+    <Content Include="assets\img\new-stories\news-3.jpg" />
+    <Content Include="assets\img\new-stories\news-4.jpg" />
+    <Content Include="assets\img\new-stories\news-5.jpg" />
+    <Content Include="assets\img\new-stories\news-6.jpg" />
+    <Content Include="assets\img\new-stories\news-7.jpg" />
+    <Content Include="assets\img\new-stories\news-8.jpg" />
+    <Content Include="assets\img\new-stories\news-9.jpg" />
+    <Content Include="assets\img\news\news-thumb-1.png" />
+    <Content Include="assets\img\news\news-thumb-2.png" />
+    <Content Include="assets\img\news\news-thumb-3.png" />
+    <Content Include="assets\img\news\news-thumb-4.png" />
+    <Content Include="assets\img\news\news-thumb-5.png" />
+    <Content Include="assets\img\news\single-news-1.jpg" />
+    <Content Include="assets\img\news\single-news-2.jpg" />
+    <Content Include="assets\img\news\single-news-3.jpg" />
+    <Content Include="assets\img\news\single-news-4.jpg" />
+    <Content Include="assets\img\news\single-news-5.jpg" />
+    <Content Include="assets\img\news\single-news-6.jpg" />
+    <Content Include="assets\img\news\single-news-7.jpg" />
+    <Content Include="assets\img\news\single-news-8.jpg" />
+    <Content Include="assets\img\news\single-news-9.jpg" />
+    <Content Include="assets\img\night.png" />
+    <Content Include="assets\img\politics\news-1.jpg" />
+    <Content Include="assets\img\politics\news-10.jpg" />
+    <Content Include="assets\img\politics\news-11.jpg" />
+    <Content Include="assets\img\politics\news-12.jpg" />
+    <Content Include="assets\img\politics\news-13.jpg" />
+    <Content Include="assets\img\politics\news-14.jpg" />
+    <Content Include="assets\img\politics\news-15.jpg" />
+    <Content Include="assets\img\politics\news-16.jpg" />
+    <Content Include="assets\img\politics\news-17.jpg" />
+    <Content Include="assets\img\politics\news-18.jpg" />
+    <Content Include="assets\img\politics\news-19.jpg" />
+    <Content Include="assets\img\politics\news-2.jpg" />
+    <Content Include="assets\img\politics\news-3.jpg" />
+    <Content Include="assets\img\politics\news-4.jpg" />
+    <Content Include="assets\img\politics\news-5.jpg" />
+    <Content Include="assets\img\politics\news-6.jpg" />
+    <Content Include="assets\img\politics\news-7.jpg" />
+    <Content Include="assets\img\politics\news-8.jpg" />
+    <Content Include="assets\img\politics\news-9.jpg" />
+    <Content Include="assets\img\promo-bg-1.jpg" />
+    <Content Include="assets\img\promo-bg-2.jpg" />
+    <Content Include="assets\img\promo-img.png" />
+    <Content Include="assets\img\subscribe-bg-2.jpg" />
+    <Content Include="assets\img\subscribe.jpg" />
+    <Content Include="assets\img\sunny.png" />
+    <Content Include="assets\img\technology\news-1.jpg" />
+    <Content Include="assets\img\technology\news-10.jpg" />
+    <Content Include="assets\img\technology\news-11.jpg" />
+    <Content Include="assets\img\technology\news-12.jpg" />
+    <Content Include="assets\img\technology\news-2.jpg" />
+    <Content Include="assets\img\technology\news-3.jpg" />
+    <Content Include="assets\img\technology\news-4.jpg" />
+    <Content Include="assets\img\technology\news-5.jpg" />
+    <Content Include="assets\img\technology\news-6.jpg" />
+    <Content Include="assets\img\technology\news-7.jpg" />
+    <Content Include="assets\img\technology\news-8.jpg" />
+    <Content Include="assets\img\technology\news-9.jpg" />
+    <Content Include="assets\img\thumbnail-news\news-1.jpg" />
+    <Content Include="assets\img\thumbnail-news\news-10.jpg" />
+    <Content Include="assets\img\thumbnail-news\news-11.jpg" />
+    <Content Include="assets\img\thumbnail-news\news-12.jpg" />
+    <Content Include="assets\img\thumbnail-news\news-13.jpg" />
+    <Content Include="assets\img\thumbnail-news\news-14.jpg" />
+    <Content Include="assets\img\thumbnail-news\news-15.jpg" />
+    <Content Include="assets\img\thumbnail-news\news-16.jpg" />
+    <Content Include="assets\img\thumbnail-news\news-17.jpg" />
+    <Content Include="assets\img\thumbnail-news\news-18.jpg" />
+    <Content Include="assets\img\thumbnail-news\news-19.jpg" />
+    <Content Include="assets\img\thumbnail-news\news-2.jpg" />
+    <Content Include="assets\img\thumbnail-news\news-20.jpg" />
+    <Content Include="assets\img\thumbnail-news\news-21.jpg" />
+    <Content Include="assets\img\thumbnail-news\news-3.jpg" />
+    <Content Include="assets\img\thumbnail-news\news-5.jpg" />
+    <Content Include="assets\img\thumbnail-news\news-6.jpg" />
+    <Content Include="assets\img\thumbnail-news\news-7.jpg" />
+    <Content Include="assets\img\thumbnail-news\news-8.jpg" />
+    <Content Include="assets\img\thumbnail-news\news-9.jpg" />
+    <Content Include="assets\img\trending\news-1.jpg" />
+    <Content Include="assets\img\trending\news-10.jpg" />
+    <Content Include="assets\img\trending\news-11.jpg" />
+    <Content Include="assets\img\trending\news-12.jpg" />
+    <Content Include="assets\img\trending\news-13.jpg" />
+    <Content Include="assets\img\trending\news-2.jpg" />
+    <Content Include="assets\img\trending\news-3.jpg" />
+    <Content Include="assets\img\trending\news-4.jpg" />
+    <Content Include="assets\img\trending\news-5.jpg" />
+    <Content Include="assets\img\trending\news-6.jpg" />
+    <Content Include="assets\img\trending\news-7.jpg" />
+    <Content Include="assets\img\trending\news-8.jpg" />
+    <Content Include="assets\img\trending\news-9.jpg" />
+    <Content Include="assets\img\video-bg.jpg" />
+    <Content Include="assets\img\video\news-1.jpg" />
+    <Content Include="assets\img\video\news-2.jpg" />
+    <Content Include="assets\img\video\news-3.jpg" />
+    <Content Include="assets\img\video\news-4.jpg" />
+    <Content Include="assets\img\video\news-5.jpg" />
+    <Content Include="assets\img\video\news-6.jpg" />
+    <Content Include="assets\img\video\news-7.jpg" />
+    <Content Include="assets\img\video\news-8.jpg" />
+    <Content Include="assets\img\video\news-9.jpg" />
+    <Content Include="assets\js\aos.js" />
+    <Content Include="assets\js\bootstrap.bundle.min.js" />
+    <Content Include="assets\js\main.js" />
+    <Content Include="assets\js\popup-video.js" />
+    <Content Include="assets\js\swiper-bundle.min.js" />
+    <Content Include="Giris.aspx" />
+    <Content Include="Haberdetay.aspx" />
+    <Content Include="Kategori.aspx" />
+    <Content Include="Kayit.aspx" />
+    <Content Include="Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Yonetim\HaberEkle.aspx" />
+    <Content Include="Yonetim\HaberListele.aspx" />
+    <Content Include="Yonetim\KategoriYonetimi.aspx" />
+    <Content Include="Yonetim\YorumOnay.aspx" />
+    <Content Include="İletisim.aspx" />
+    <Content Include="Web.config" />
+    <Content Include="Default.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Giris.aspx.cs">
+      <DependentUpon>Giris.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Giris.aspx.designer.cs">
+      <DependentUpon>Giris.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Haberdetay.aspx.cs">
+      <DependentUpon>Haberdetay.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Haberdetay.aspx.designer.cs">
+      <DependentUpon>Haberdetay.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Kayit.aspx.cs">
+      <DependentUpon>Kayit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Kayit.aspx.designer.cs">
+      <DependentUpon>Kayit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPage.Master.cs">
+      <DependentUpon>MasterPage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPage.Master.designer.cs">
+      <DependentUpon>MasterPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Kategori.aspx.cs">
+      <DependentUpon>Kategori.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Kategori.aspx.designer.cs">
+      <DependentUpon>Kategori.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SqlBaglanti.cs" />
+    <Compile Include="YeniHbrHaberler.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="YeniHbrKategoriler.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="YeniHbrUyeler.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="YeniHbrYonetim.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="YeniHbrYorumlar.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Yonetim\Admin.Master.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Yonetim\Admin.Master.designer.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Yonetim\HaberEkle.aspx.cs">
+      <DependentUpon>HaberEkle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Yonetim\HaberEkle.aspx.designer.cs">
+      <DependentUpon>HaberEkle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Yonetim\HaberListele.aspx.cs">
+      <DependentUpon>HaberListele.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Yonetim\HaberListele.aspx.designer.cs">
+      <DependentUpon>HaberListele.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Yonetim\KategoriYonetimi.aspx.cs">
+      <DependentUpon>KategoriYonetimi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Yonetim\KategoriYonetimi.aspx.designer.cs">
+      <DependentUpon>KategoriYonetimi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Yonetim\YorumOnay.aspx.cs">
+      <DependentUpon>YorumOnay.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Yonetim\YorumOnay.aspx.designer.cs">
+      <DependentUpon>YorumOnay.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="İletisim.aspx.cs">
+      <DependentUpon>İletisim.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="İletisim.aspx.designer.cs">
+      <DependentUpon>İletisim.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MasterPage.Master" />
+    <Content Include="assets\fonts\remixicon0c93.eot" />
+    <Content Include="assets\fonts\remixicon0c93.ttf" />
+    <Content Include="assets\fonts\remixicon0c93.woff" />
+    <Content Include="assets\fonts\remixicon0c93.woff2" />
+    <Content Include="assets\img\newsletter-bg.webp" />
+    <EntityDeploy Include="Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <None Include="packages.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <Content Include="Yonetim\Admin.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="assets\img\upload\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>52415</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44381/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Bu proje bu bilgisayarda olmayan NuGet paketlerine başvuru yapıyor. Bunları indirmek için NuGet Paket Geri Yükleme'yi kullanın. Daha fazla bilgi için, bkz. http://go.microsoft.com/fwlink/?LinkID=322105. Eksik dosya: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

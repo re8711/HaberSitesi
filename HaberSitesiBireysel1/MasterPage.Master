@@ -1,0 +1,171 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="HaberSitesiBireysel1.MasterPage" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Haber Sitesi</title>
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/animate.min.css">
+    <link rel="stylesheet" href="assets/css/remixicon.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/dark-theme.css">
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        
+        <div class="navbar-area style-two position-relative" id="navbar">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg d-flex flex-wrap justify-content-between align-items-center">
+                    <a href="Default.aspx" class="logo">
+                        <img style="max-height: 50px; width: auto;" src="assets/img/logo.png" alt="Logo" class="logo-light">
+                        <img style="max-height: 50px; width: auto;" src="assets/img/logo-white.png" alt="Logo" class="logo-dark">
+                    </a>
+                    
+                    <div class="collapse navbar-collapse d-flex flex-wrap align-items-center justify-content-end">
+                        <ul class="navbar-nav md-none mx-auto ps-xxl-1">
+                            
+                            <li class="nav-item">
+                                <a href="Default.aspx" class="nav-link">
+                                    Ana Sayfa
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="javascript:void(0)" class="dropdown-toggle nav-link active">
+                                    Kategoriler
+                                </a>
+                                <ul class="dropdown-menu list-unstyled">
+                                    <asp:Repeater ID="rptKategoriler" runat="server">
+                                        <ItemTemplate>
+                                            <li class="nav-item">
+                                                <a href='Kategori.aspx?id=<%# Eval("KategoriID") %>' class="nav-link">
+                                                    <%# Eval("KategoriAdi") %>
+                                                </a>
+                                            </li>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
+                                </ul>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="İletisim.aspx" class="nav-link">
+                                    İletişim
+                                </a>
+                            </li>
+                        </ul>
+
+                        <div class="other-options d-flex align-items-center">
+                            
+                            <a href="Kayit.aspx" class="btn text-white d-lg-none me-2" style="font-size: 14px;">Kayıt Ol</a>
+                            <span class="middle-bar"></span>
+                            <span class="bottom-bar"></span>
+
+                            <div class="d-flex align-items-center md-none">
+                                
+                             <asp:Panel ID="pnlMisafir" runat="server" class="d-flex align-items-center">
+    
+                              <a href="Kayit.aspx" class="btn style-three fw-semibold text-center text-white d-flex align-items-center justify-content-center" 
+                                 style="height: 45px; padding: 0 30px; line-height: 1; margin-top: -15px;">
+                                  Kayıt Ol
+                              </a>
+                             
+                              <a href="Giris.aspx" class="btn style-three fw-semibold text-center text-white d-flex align-items-center justify-content-center" 
+                                 style="height: 45px; padding: 0 30px; line-height: 1; margin-top: -15px; margin-right: 10px;">
+                                  Giriş Yap
+                              </a>
+                             
+                              </asp:Panel>
+
+                               <asp:Panel ID="pnlUye" runat="server" Visible="false" class="d-flex align-items-center">
+    
+                                <span class="text-title me-3 fw-bold" style="font-size: 14px; margin-top: -5px;">
+                                    Hoşgeldin, <asp:Label ID="lblUyeAdSoyad" runat="server"></asp:Label>
+                                </span>
+                               
+                                <asp:LinkButton ID="btnCikis" runat="server" OnClick="btnCikis_Click" 
+                                    CssClass="btn style-three fw-semibold text-white" 
+                                    style="background-color: #e74c3c !important; border-color: #e74c3c; margin-top: -15px;">
+                                    Çıkış <i class="ri-logout-box-r-line"></i>
+                                </asp:LinkButton>
+                               
+                                </asp:Panel>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+
+        <footer class="footer-wrap style-one bg-title ptb-100">
+            <div class="container">
+                <div class="footer-top">
+                    <div class="row">
+                        <div class="col-lg-4 mb-md-15">
+                            <div class="footer-widget">
+                                <a href="index.html" class="logo d-block"><img src="/assets/img/logo-white.png" alt="Logo"></a>
+                                <ul class="footer-menu style-one list-unstyled">
+                                    <li><a href="featured-news.html">Dürüst</a></li>
+                                    <li><a href="featured-news.html">Gazetecilik</a></li>
+                                    <li><a href="featured-news.html">Cesaret</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="footer-widget">
+                                <ul class="footer-menu style-two list-unstyled d-flex flex-wrap align-items-center justify-content-lg-end">
+                                    <li><a href="about-us.html">Hakkımızda</a></li>
+                                    <li><a href="contact.html">İletişim</a></li>
+                                    <li><a href="my-account.html">Abonelik</a></li>
+                                    <li><a href="blog-left-sidebar.html">Podcast</a></li>
+                                    <li><a href="blog-right-sidebar.html">Video</a></li>
+                                    <li><a href="latest-news.html">Uzun Haberler</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div class="row align-items-center">
+                        <div class="col-md-8 pe-xxl-5">
+                            <p class="copyright-text text-offwhite fs-15 mb-0"><span class="text-white">Telif Hakkı:</span> İzinsiz ticari kullanım yasaktır. <span class="text-white">Renaz</span> - Tüm Hakları Saklıdır.</p>
+                        </div>
+                        <div class="col-md-4">
+                            <ul class="social-profile style-one text-md-end list-unstyled">
+                                <li><a href="https://www.facebook.com/" target="_blank"><i class="ri-facebook-fill"></i></a></li>
+                                <li><a href="https://www.pinterest.com/" target="_blank"><i class="ri-pinterest-fill"></i></a></li>
+                                <li><a href="https://www.instagram.com/" target="_blank"><i class="ri-instagram-line"></i></a></li>
+                                <li><a href="https://x.com/?lang=en" target="_blank"><i class="ri-twitter-x-line"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </form>
+
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="assets/js/popup-video.js"></script>
+    <script src="assets/js/aos.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
